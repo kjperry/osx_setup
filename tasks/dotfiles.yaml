@@ -1,0 +1,33 @@
+---
+
+# add github to known hosts
+# ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts
+
+
+- name: create dotfiles dir
+  file:
+    path: ~/Documents/dotfiles
+    state: directory
+
+- name: download dotfiles
+  git: repo=ssh://git@github.com/kjperry/dotfiles.git dest=~/Documents/dotfiles/dotfiles
+
+- name: install dotfiles - bundle
+  shell: bundle install chdir=~/Documents/dotfiles/dotfiles
+
+- name: install dotfiles - rake
+  shell: rake chdir=~/Documents/dotfiles/dotfiles
+
+- name: download intellij config
+  git: repo=ssh://git@github.com/kjperry/intellij-config.git dest=~/Documents/dotfiles/intellij-config
+
+- name: remove old intellij config
+  file:
+    path: ~/Library/Preferences/IdeaIC2016.1
+    state: absent
+
+- name: symlink new intellij config
+  file:
+    src: ~/Documents/dotfiles/intellij-config
+    dest: ~/Library/Preferences/IdeaIC2016.1
+    state: link

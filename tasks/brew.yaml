@@ -1,0 +1,25 @@
+---
+- name: install homebrew
+  shell: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  args:
+    creates: /usr/local/Cellar
+    executable: /bin/bash
+
+- name: install homebrew packages
+  homebrew: name={{item}} state=present
+  with_items:
+    - git
+    - go
+    - npm
+    - nvm
+
+- name: install homebrew cask packages
+  homebrew_cask: name={{item}} state=present
+  with_items:
+    - alfred
+    - docker
+    - firefox
+    - google-chrome
+    # - intellij-idea 403 :(
+    - spotify
+    - vlc
