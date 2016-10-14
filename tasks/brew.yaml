@@ -16,7 +16,7 @@
 - name: install homebrew cask packages
   homebrew_cask: name={{item}} state=present
   with_items:
-    - alfred
+    # - alfred 403 :(
     - docker
     - firefox
     - google-chrome
