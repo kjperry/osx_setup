@@ -5,3 +5,5 @@
   tasks:
     - include: tasks/brew.yaml
     - include: tasks/dotfiles.yaml
+    - include: tasks/macos_defaults.yaml
+    - include: tasks/macos_config.yaml

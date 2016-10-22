@@ -1,0 +1,29 @@
+---
+# Adapted from https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+- name: Set hostname
+  become: yes
+  shell: scutil --set {{item}} "ShinjukuParkTower2"
+  with_items:
+    - ComputerName
+    - HostName
+    - LocalHostName
+
+- name: Disable NotificationCenter and remove icon
+  shell: launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
+
+- name: Stop iTunes from responding to keyboard media keys
+  shell: launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+
+- name: Show the ~/Library folder
+  shell: chflags nohidden ~/Library
+
+- name: Show the /Volumes folder
+  shell: chflags nohidden /Volumes
+  become: yes
+
+- name: Enable icon snap-to-grid
+  shell: /usr/libexec/PlistBuddy -c "Set :{{item}}:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+  with_items:
+    - DesktopViewSettings
+    - FK_StandardViewSettings
+    - StandardViewSettings

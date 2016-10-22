@@ -1,8 +1,8 @@
 ---
 
-# add github to known hosts
-# ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts
-
+- name: add github to known hosts
+  shell: ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts
+  become: yes
 
 - name: create dotfiles dir
   file:
@@ -10,7 +10,11 @@
     state: directory
 
 - name: download dotfiles
-  git: repo=ssh://git@github.com/kjperry/dotfiles.git dest=~/Documents/dotfiles/dotfiles
+  git: repo=https://github.com/kjperry/dotfiles.git dest=~/Documents/dotfiles/dotfiles
+
+- name: install dotfiles - get bundler
+  shell: gem install bundler
+  become: yes
 
 - name: install dotfiles - bundle
   shell: bundle install chdir=~/Documents/dotfiles/dotfiles
@@ -19,7 +23,7 @@
   shell: rake chdir=~/Documents/dotfiles/dotfiles
 
 - name: download intellij config
-  git: repo=ssh://git@github.com/kjperry/intellij-config.git dest=~/Documents/dotfiles/intellij-config
+  git: repo=https://github.com/kjperry/intellij-config.git dest=~/Documents/dotfiles/intellij-config
 
 - name: remove old intellij config
   file:

@@ -1,0 +1,145 @@
+---
+# Adapted from https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+- name: change computer name
+  osx_defaults: 
+    domain: com.apple.smb.server
+    key: NetBIOSName
+    type: string
+    value: "ShinjukuParkTower2"
+
+- name: disable app quarantine
+  osx_defaults:
+    domain: com.apple.LaunchServices
+    key: LSQuarantine
+    type: bool
+    value: false
+
+- name: disable smart quotes
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: NSAutomaticSmartQuoteSubstitutionEnabled
+    type: bool
+    value: false
+
+- name: disable smart dashes
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: NSAutomaticDashSubstitutionEnabled
+    type: bool
+    value: false
+
+- name: scroll the non-annoying direction
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.swipescrolldirection
+    type: bool
+    value: false
+
+- name: disable autocorrect
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: NSAutomaticSpellingCorrectionEnabled
+    type: bool
+    value: false
+
+- name: don't require password after sleep
+  osx_defaults:
+    domain: com.apple.screensaver
+    key: askForPassword
+    type: int
+    value: 0
+
+- name: Finder - show more things on desktop
+  osx_defaults: domain=com.apple.finder key={{item}} type=bool value=true
+  with_items:
+    - ShowExternalHardDrivesOnDesktop
+    - ShowHardDrivesOnDesktop
+    - ShowMountedServersOnDesktop
+    - ShowRemovableMediaOnDesktop
+
+- name: Finder - show hidden files
+  osx_defaults:
+    domain: com.apple.finder
+    key: AppleShowAllFiles
+    type: bool
+    value: true
+
+- name: Finder - show file extensions
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleShowAllExtensions
+    type: bool
+    value: true
+
+- name: Finder - show status bar
+  osx_defaults:
+    domain: com.apple.finder
+    key: ShowStatusBar
+    type: bool
+    value: true
+
+- name: Finder - show path bar
+  osx_defaults:
+    domain: com.apple.finder
+    key: ShowPathbar
+    type: bool
+    value: true
+
+- name: Finder - disable warning when changing file extensions
+  osx_defaults:
+    domain: com.apple.finder
+    key: FXEnableExtensionChangeWarning
+    type: bool
+    value: false
+
+- name: Don't create .DS_Store files on network volumes
+  osx_defaults:
+    domain: com.apple.desktopservices
+    key: DSDontWriteNetworkStores
+    type: bool
+    value: true
+
+- name: Open a new Finder windown when a volume is mounted, pt 1
+  osx_defaults:
+    domain: com.apple.frameworks.diskimages
+    key: auto-open-ro-root
+    type: bool
+    value: true
+
+- name: Open a new Finder window when a volume is mounted, pt 2
+  osx_defaults:
+    domain: com.apple.frameworks.diskimages
+    key: auto-open-rw-root
+    type: bool
+    value: true
+
+- name: Open a new Finder window when a volume is mounted, pt 3
+  osx_defaults:
+    domain: com.apple.finder
+    key: OpenWindowForNewRemovableDisk
+    type: bool
+    value: true
+
+- name: List view in Finder by default
+  osx_defaults:
+    domain: com.apple.finder
+    key: FXPreferredViewStyle
+    type: string
+    value: Nlsv
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
