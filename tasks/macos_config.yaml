@@ -27,3 +27,6 @@
     - DesktopViewSettings
     - FK_StandardViewSettings
     - StandardViewSettings
+
+- name: Enable tap to click
+  shell: defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1

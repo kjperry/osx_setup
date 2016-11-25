@@ -12,6 +12,7 @@
     - go
     - npm
     - nvm
+    - tmux
 
 - name: install homebrew cask packages
   homebrew_cask: name={{item}} state=present

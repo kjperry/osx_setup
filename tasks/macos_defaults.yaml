@@ -127,7 +127,19 @@
     type: string
     value: Nlsv
 
+- name: Enable tap to click
+  osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: Clicking
+    type: int
+    value: 1
 
+- name: Enable tap to click
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.mouse.tapBehavior
+    type: int
+    value: 1
 
 
 
