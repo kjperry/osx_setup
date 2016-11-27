@@ -141,17 +141,65 @@
     type: int
     value: 1
 
+- name: hot corners - bottom right - screen saver
+  osx_defaults:
+    domain: com.apple.dock
+    key: wvous-br-corner
+    type: int
+    value: 5
 
+- name: hot corners - top right - application windows
+  osx_defaults:
+    domain: com.apple.dock
+    key: wvous-tr-corner
+    type: int
+    value: 3
 
+- name: hot corners - top left - mission control
+  osx_defaults:
+    domain: com.apple.dock
+    key: wvous-tl-corner
+    type: int
+    value: 2
 
+- name: hot corners - bottom left - desktop
+  osx_defaults:
+    domain: com.apple.dock
+    key: wvous-bl-corner
+    type: int
+    value: 4
 
+- name: terminal - disable visual bell
+  osx_defaults:
+    domain: com.apple.terminal
+    key: VisualBell
+    type: bool
+    value: false
 
+- name: terminal - disable bell
+  osx_defaults:
+    domain: com.apple.terminal
+    key: Bell
+    type: bool
+    value: false
 
+- name: terminal - use Pro theme
+  osx_defaults:
+    domain: com.apple.terminal
+    key: "Default Window Settings"
+    type: string
+    value: "Pro"
 
+- name: terminal - use Pro theme
+  osx_defaults:
+    domain: com.apple.terminal
+    key: "Startup Window Settings"
+    type: string
+    value: "Pro"
 
-
-
-
-
-
-
+- name: add seconds to clock
+  osx_defaults:
+    domain: com.apple.menuextra.clock
+    key: DateFormat
+    type: string
+    value: "EEE H:mm:ss"
