@@ -202,4 +202,4 @@
     domain: com.apple.menuextra.clock
     key: DateFormat
     type: string
-    value: "EEE H:mm:ss"
+    value: "EEE MMM d h:mm:ss"
