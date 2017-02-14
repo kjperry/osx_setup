@@ -148,12 +148,12 @@
     type: int
     value: 5
 
-- name: hot corners - top right - application windows
+- name: hot corners - top right - desktop
   osx_defaults:
     domain: com.apple.dock
     key: wvous-tr-corner
     type: int
-    value: 3
+    value: 4
 
 - name: hot corners - top left - mission control
   osx_defaults:
@@ -162,12 +162,12 @@
     type: int
     value: 2
 
-- name: hot corners - bottom left - desktop
+- name: hot corners - bottom left - application windows
   osx_defaults:
     domain: com.apple.dock
     key: wvous-bl-corner
     type: int
-    value: 4
+    value: 3
 
 - name: terminal - disable visual bell
   osx_defaults:
